@@ -1,0 +1,28 @@
+.center{
+  width:50vw;
+  height:80vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color:#A4EBF3;
+  border-radius:5%;
+  transform: translate(-50%, -50%);
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.69); 
+box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.69);
+}
+.center form{
+position: absolute;
+left: 25%;
+top: 20%;
+width:50%;
+height:50%;
+}
+.center form img {
+width:100px;
+height:100px;
+display:block;
+margin:0 auto;
+}
+.center form button{
+width:100%;
+}

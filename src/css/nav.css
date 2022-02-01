@@ -1,0 +1,11 @@
+.display{
+    display:none;
+    }
+    
+    @media screen and (min-width: 374px) and (max-width:700px) {
+    .display{
+    display: block;
+    z-index:9999;
+    }
+
+    }

@@ -1,0 +1,22 @@
+
+.dashboard{
+width:20vw;
+background-color:#313552;
+position: fixed;
+}
+
+ul li{
+margin-top:4em;
+}
+li:hover{
+color:hotpink;
+}
+
+@media screen and (min-width: 374px) and (max-width:700px) {
+    .dashboard {
+  display:none !important;
+    
+    }
+ 
+    
+  }

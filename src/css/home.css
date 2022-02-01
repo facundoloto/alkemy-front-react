@@ -1,0 +1,34 @@
+
+.center-div{
+max-width:100vw;
+max-height:100vh;
+}
+.table{
+   width:50vw !important;
+   margin-left:20vw;
+   margin-right:20vw;
+   } 
+.balance {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.display{
+display:none;
+}
+
+@media screen and (min-width: 374px) and (max-width:700px) {
+.display{
+display: block;
+}
+ .balance{
+    position:static;
+    left:50%;
+    top:20%;
+ } 
+ .table{
+    width:80vw !important;
+    margin-left:2.5vw;
+    margin-right:2.5vw;
+    }   
+}
