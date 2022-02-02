@@ -50,10 +50,10 @@ return (
 <NavBar/>
 <Dashboard/>
 <div className="center-button">
-<Button variant="success" size="sm" onClick={()=>getRecord("entry")} >
+<Button variant="outline-success" size="sm" onClick={()=>getRecord("entry")} >
       entry
     </Button>
-    <Button variant='danger' size="sm" onClick={()=>getRecord("egress")}>
+    <Button variant='outline-danger' size="sm" onClick={()=>getRecord("egress")}>
       egress
     </Button>
   </div>
