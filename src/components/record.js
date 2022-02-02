@@ -60,14 +60,14 @@ return (
 
 <Form.Group className="mb-3" controlId="formBasicEmail">
 <Form.Label>Category</Form.Label>
-<Form.Select aria-label="Default select example" {...register("categoryID")}>
+<Form.Select aria-label="Default select example" required {...register("categoryID")}>
 {getData.map(function(Data){return(<option value={Data.id}>{Data.category}</option>)})}
 </Form.Select>
 </Form.Group>
 
 <Form.Group className="mb-3" controlId="formBasicEmail">
 <Form.Label>Concept</Form.Label>
-<Form.Control type="text" placeholder="Normal text" {...register("concept")} />
+<Form.Control type="text" placeholder="Normal text" required {...register("concept")} />
 </Form.Group>
 
 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -80,7 +80,7 @@ return (
 
 <Form.Group className="mb-3" controlId="formBasicEmail">
 <Form.Label>Amount</Form.Label>
-<Form.Control type="text" placeholder="Normal text" {...register("amount")}/> 
+<Form.Control type="number" placeholder="Normal text" {...register("amount")} required/> 
 </Form.Group>
 
 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -95,6 +95,7 @@ name="date"
      dateFormat='yyyy/MM/dd'
      maxDate={new Date()}
      placeholderText='enter date'
+     required
      />)}
 />
 </Form.Group>
