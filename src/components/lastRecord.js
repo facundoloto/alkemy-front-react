@@ -2,7 +2,7 @@ import React from 'react'
 import {Card,Row,Col} from 'react-bootstrap'
 import { useState,useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../css/table.css'
+import '../css/lastRecord.css'
 
 export default function Latest(){
 
@@ -28,9 +28,13 @@ const formatDate = (dateNew)=>{
   }
     
 return (
-<div className=''>
+<div>
+<h5 className='text-center'>Lasted Records</h5>
+<div className='center-table'>
+
 <table className="table">
   <thead>
+  
     <tr>
       <th scope="col" >Category</th>
       <th scope="col">Concept</th>
@@ -59,6 +63,8 @@ return (
   </tbody>
 </table>
 </div>
+</div>
+
 
 )
 

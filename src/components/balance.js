@@ -2,8 +2,6 @@ import React from 'react'
 import { useState,useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/balance.css'
-import '../css/form.css'
-
 export default function Balance(){
 const [getData,setData] =useState([])
 let entry
@@ -33,23 +31,23 @@ balance=Data.balance
 )
 
 return (
-<div className="center-card">
-<div className="card text-white bg-info mb-3">
+<div className="center-card balance">
+<div className="card text-white bg-balance mb-3 ">
   <div className="card-header">Balance</div>
   <div className="card-body">
-    <h5 className="card-title">{balance}</h5>
+    <h5 className="card-title">${balance}</h5>
   </div>
 </div>
-<div className="card text-white bg-success mb-3">
+<div className="card text-white bg-entry mb-3">
   <div className="card-header">ingresos total</div>
   <div className="card-body">
-    <h5 className="card-title">{entry}</h5>
+    <h5 className="card-title">${entry}</h5>
   </div>
 </div>
-<div className="card text-white bg-danger mb-3">
+<div className="card text-white bg-egress mb-3 ">
   <div className="card-header">egresos total</div>
   <div className="card-body">
-    <h5 className="card-title">{"-"+egress}</h5>
+    <h5 className="card-title">${"-"+egress}</h5>
   </div>
 </div>
 </div>

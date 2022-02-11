@@ -3,22 +3,15 @@ import Dashboard from "../components/dashboard";
 import Balance from './balance';
 import "../css/home.css"
 import Latest from "../components/lastRecord"
-import NavBar from './navBar';
 export default function Home(){
 return(
 <div className='center-div'>
-<div className='display'>
-<NavBar />
-</div>
-
-<div >
 <Dashboard/>
-<div className='balance'>
+<div className='center-balance'>
 <Balance />
 </div>
-<div className="table">
-<Latest />
-</div>
+<div className="center-table" >
+<Latest/>
 </div>
 </div>
 )
