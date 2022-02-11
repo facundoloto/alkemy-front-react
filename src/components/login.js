@@ -1,15 +1,17 @@
 import React from 'react'
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import {Button,Form} from 'react-bootstrap';
+import {Button,Form,Spinner} from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import {Link} from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
+import { Oval} from  'react-loader-spinner'
 import img from '../img/icon_login.png'
 import '../css/form.css'
-
+import Swal from 'sweetalert2'
 export default function Login() {
-localStorage.clear()
+
+const [getDisplay,setDisplay] = useState(true);
 const [changeType,setChangeType] = useState('password');//this function like value when it will do click in show password
 const [change,setChange] = useState(true);//it's to evalue when touch show password 
 const changeInput=()=>{ //function for when the user will touch in show password 
@@ -26,8 +28,8 @@ const { register, handleSubmit } = useForm();
 const navigate=useNavigate() 
 const onSubmit= async function GetFecth(data){
   console.log(data)
+  setDisplay(false)
   //config of requestOptions to fetch
-
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -37,15 +39,32 @@ const onSubmit= async function GetFecth(data){
       try{
       console.log("hola")
       const response = await fetch(`http://localhost:8080/api/v1/login/`, requestOptions);
-      const getResponse= await response.json();
-      console.log(getResponse)
+      
+     console.log(response.status)
       //if the password and email is the same,data.lenth not is null
-      if(getResponse.length===1){
+      if(response.status===200){
+        const getResponse=await response.json()
+        console.log(getResponse)
       localStorage.setItem("userID",getResponse[0].id)
       localStorage.setItem("name",getResponse[0].name)
       localStorage.setItem("login",true)
+      setDisplay(true)
+      Swal.fire({
+        icon: 'success',
+        title: 'success',
+        showConfirmButton: false,
+        timer: 1500
+      })
       //rederirection to home if user is loggein
       navigate("/home/")
+      }
+      else{
+        console.log(response)
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Email or Password wrong,Try again!',
+        })
       }
 
   }catch(err){console.log(err)}
@@ -53,7 +72,9 @@ const onSubmit= async function GetFecth(data){
   }
   
 return (
+<div className='div-first'>
 <div className='center-form'>
+
 <Form onSubmit={handleSubmit(onSubmit)}>
 <img src={img}/>
 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -77,6 +98,7 @@ Submit
 Register new user
 </Link>
 </Form>
+</div>
 </div>
 );
 }

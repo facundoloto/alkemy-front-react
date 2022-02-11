@@ -6,7 +6,6 @@ import { useForm,Controller } from "react-hook-form";
 import { useState,useEffect } from 'react';
 import '../css/form.css'
 import Dashboard from "../components/dashboard";
-import NavBar  from './navBar';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -63,7 +62,6 @@ catch(err){console.log(err)}
   
 return (
 <div>
-<NavBar/>
 <Dashboard/>
 <div className='center-form'>
 <Form onSubmit={handleSubmit(onSubmit)}>

@@ -1,11 +1,16 @@
-.display{
+.displayNav{
     display:none;
     }
-    
-    @media screen and (min-width: 374px) and (max-width:700px) {
-    .display{
+    .bg-nav{
+        background: #4b6cb7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #182848, #4b6cb7);
+    }
+    @media screen and (min-width: 359px) and (max-width:700px) {
+    .displayNav{
     display: block;
     z-index:9999;
+    
     }
 
     }

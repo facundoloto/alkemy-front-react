@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {Button,Form} from 'react-bootstrap';
 import { useForm,Controller } from "react-hook-form";
 import '../css/form.css'
+import Swal from 'sweetalert2';
 import Dashboard from "../components/dashboard";
 import {useNavigate} from "react-router-dom";
-import NavBar from './navBar';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../css/record.css"
@@ -46,15 +46,27 @@ const onSubmit= async function GetFecth(data){
     };
     //fecth
     const response = await fetch(`http://localhost:8080/api/v1/record/`, requestOptions);
-    console.log(response)
-    alert("record save")
+    if (response.status!=200){
+      Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'try again!',
+        })
+  }
+  else{
+      Swal.fire({
+          icon: 'success',
+          title: 'record save',
+          showConfirmButton: false,
+          timer: 1500
+        })
+  }
     }catch(err){console.log(err)}
    
    }
 return (
 <div>
 <Dashboard/>
-<NavBar />
 <div className='center-form'>
 <Form onSubmit={handleSubmit(onSubmit)}>
 

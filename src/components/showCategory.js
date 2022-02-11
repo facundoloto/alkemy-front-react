@@ -10,8 +10,8 @@ try{
         const dataServe= await response.json()
         setData(dataServe)}
         useEffect(()=>{
-        getCategory()
-        },[]) 
+            getCategory()
+            },[]) 
         return(getData)
 }catch(err){console.log(err)}
 
