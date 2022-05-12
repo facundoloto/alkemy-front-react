@@ -1,0 +1,14 @@
+.displayNav{
+    display:none;
+    }
+    .bg-nav{
+       background-color: #112B3C;
+    }
+    @media screen and (min-width: 359px) and (max-width:700px) {
+    .displayNav{
+    display: block;
+    z-index:9999;
+    
+    }
+
+    }

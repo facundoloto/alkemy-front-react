@@ -4,11 +4,12 @@ margin-top:2em;
 }
 .center-card .card{
 margin-left:2em;
-max-width:18rem !important;
+
 }
 .bg-balance{
   background-color: #0093E9;
   background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
 }
 .bg-entry{
   background-color: #08AEEA;

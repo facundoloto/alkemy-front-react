@@ -1,35 +1,39 @@
-.center-div{
-min-width:100vw;
-min-height:100vh;
+.center-div {
+   min-width: 100vw;
+   min-height: 100vh;
 }
-.center-balance{
+
+.center-balance {
    position: absolute;
    top: 0%;
    left: 50%;
 }
-.center-table{
+
+.center-table {
    position: absolute;
    top: 60%;
-   left:25%;
+   left: 25%;
 }
 
 
 
 @media screen and (min-width: 359px) and (max-width:700px) {
 
-   .center-balance{
+   .center-balance {
       position: absolute;
-      top: 10%;
-      left:25%;
-      right:25%;
+      top: 20%;
+      left: 25%;
+      right: 25%;
    }
-   .center-table{
+
+   .center-table {
       position: absolute;
       top: 70%;
-      left:0%;
+      left: 0%;
    }
-   
+
 }
+
 /*@media screen and (max-width: 359px) {
 
    .center-balance{

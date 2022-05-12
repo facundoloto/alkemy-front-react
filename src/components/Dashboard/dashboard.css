@@ -1,0 +1,34 @@
+.img {
+  width: 60px;
+  height: 60px;
+}
+
+.dashboard {
+  width: 20vw;
+  background-color: #112B3C;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+}
+
+.bg-egress {
+  background-color: #FF9A8B;
+  background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+}
+
+ul li {
+  margin-top: 4em;
+}
+
+li:hover {
+  color: hotpink;
+}
+
+@media screen and (min-width: 359px) and (max-width:700px) {
+  .dashboard {
+    display: none !important;
+
+  }
+
+
+}
