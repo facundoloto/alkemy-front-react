@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import img from "./../../img/icon_login.png";
 import "bootstrap/dist/css/bootstrap.css";
-import ".form.css";
+import "./form.css";
 
 export default function Signup() {
 
