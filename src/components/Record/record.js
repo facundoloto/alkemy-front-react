@@ -18,7 +18,7 @@ export default function Record() {
 
   const Categories = async () => {
     try {
-      const response = await fetch(`http://localhost:3080/categories`);
+      const response = await fetch(`https://backend-kr53.onrender.com/categories`);
       const dataServe = await response.json();
       setCategories(dataServe.result);
     } catch (err) {
@@ -28,7 +28,7 @@ export default function Record() {
 
   const Type = async () => {
     try {
-      const response = await fetch(`http://localhost:3080/type`);
+      const response = await fetch(`https://backend-kr53.onrender.com/type`);
       const dataServe = await response.json();
       setTypes(dataServe.result);
     } catch (err) {
@@ -64,7 +64,7 @@ export default function Record() {
       };
       //fecth
       const response = await fetch(
-        `http://localhost:3080/record/add/`,
+        `https://backend-kr53.onrender.com/record/add/`,
         requestOptions
       );
       if (response.status != 200) {

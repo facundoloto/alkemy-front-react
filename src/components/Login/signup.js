@@ -36,7 +36,7 @@ export default function Signup() {
       };
       //fecth
       const response = await fetch(
-       `http://localhost:3080/auth/register/`,
+       `https://backend-kr53.onrender.com/auth/register/`,
         requestOptions
       );
       console.log(response);

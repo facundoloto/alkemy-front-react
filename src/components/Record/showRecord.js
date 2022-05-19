@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
 import { Button } from 'react-bootstrap';
 import Dashboard from "../Dashboard/dashboard";
+import Loader from '../Loader/Loader';
 import Swal from 'sweetalert2';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -13,6 +13,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import 'bootstrap/dist/css/bootstrap.css';
+import "./record.css";
 import "../../css/table.css";
 
 const StyledTableCell = withStyles((theme) => ({
@@ -54,15 +55,22 @@ const useStyles = makeStyles({
 export default function Show() {
 
     const [getData, setData] = useState([])
+    const [loader, setLoader] = useState(true);
+
     let userID = localStorage.getItem("userID");
+    console.log(userID);
     const classes = useStyles();
-    const navigate = useNavigate()
+   
 
     const getRecord = async () => {
+        setLoader(true);
         try {
-            const response = await fetch(`http://localhost:3080/record/${userID}/`)
-            const data = await response.json()
-            setData(data.result)
+            const response = await fetch(`https://backend-kr53.onrender.com/record/${userID}/`)
+            const data = await response.json();
+
+            setData(data.result);
+            console.log(getData);
+            setLoader(true);
         } catch (err) { console.log(err) }
     }
 
@@ -74,7 +82,7 @@ export default function Show() {
 
             };
             if (window.confirm("do you want delete this record?")) {
-                const response = await fetch(`http://localhost:3080/record/${id}`, requestOptions)
+                const response = await fetch(`https://backend-kr53.onrender.com/record/${id}`, requestOptions)
                 const get = await response.json()
                 setData(get)
             }
@@ -87,15 +95,26 @@ export default function Show() {
             })
         } catch (err) { console.log(err) }
     }
+   
 
     useEffect(() => {
-        getRecord()
+        getRecord();
     }, []);
 
+
+
     return (
-        <div>
+        <div className='center-div'>
             <Dashboard />
+       
+       
+      
             <div className='center-table'>
+            {
+        loader==true ? (
+          <Loader className='center-loader' />
+        ) : (
+            
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="customized table">
                         <TableHead>
@@ -127,7 +146,10 @@ export default function Show() {
                         </TableBody>
                     </Table>
                 </TableContainer>
-            </div>
-        </div>
-    )
+        )
 }
+            </div>
+</div>
+    )
+
+};
