@@ -60,7 +60,7 @@ export default function Show() {
     let userID = localStorage.getItem("userID");
     console.log(userID);
     const classes = useStyles();
-   
+
 
     const getRecord = async () => {
         setLoader(true);
@@ -70,7 +70,7 @@ export default function Show() {
 
             setData(data.result);
             console.log(getData);
-            setLoader(true);
+            setLoader(false);
         } catch (err) { console.log(err) }
     }
 
@@ -95,7 +95,7 @@ export default function Show() {
             })
         } catch (err) { console.log(err) }
     }
-   
+
 
     useEffect(() => {
         getRecord();
@@ -106,50 +106,46 @@ export default function Show() {
     return (
         <div className='center-div'>
             <Dashboard />
-       
-       
-      
             <div className='center-table'>
-            {
-        loader==true ? (
-          <Loader className='center-loader' />
-        ) : (
-            
-                <TableContainer component={Paper}>
-                    <Table className={classes.table} aria-label="customized table">
-                        <TableHead>
-                            <TableRow>
-                                <StyledTableCell align="right">ID</StyledTableCell>
-                                <StyledTableCell align="right">Category</StyledTableCell>
-                                <StyledTableCell align="right">Type</StyledTableCell>
-                                <StyledTableCell align="right">Amount</StyledTableCell>
-                                <StyledTableCell align="right">Concept</StyledTableCell>
-                                <StyledTableCell align="right">Date</StyledTableCell>
-                                <StyledTableCell align="right">Delete</StyledTableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {
-                                getData.map(function (Data) {
-                                    return (
-                                        <StyledTableRow key={Data.id}>
-                                            <StyledTableCell align="right">{Data.id}</StyledTableCell>
-                                            <StyledTableCell align="right">{Data.categories.name}</StyledTableCell>
-                                            <StyledTableCell align="right">{Data.type.name}</StyledTableCell>
-                                            <StyledTableCell align="right">{Data.amount}</StyledTableCell>
-                                            <StyledTableCell align="right">{Data.concept}</StyledTableCell>
-                                            <StyledTableCell align="right">{Data.date}</StyledTableCell>
-                                            <StyledTableCell align="right"><Button onClick={() => deleteRecord(Data.id)}>delete</Button></StyledTableCell>
-                                        </StyledTableRow>
-                                    )
-                                })}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-        )
-}
+                {
+                    loader == true ? (
+                        <Loader />
+                    ) : (
+                        <TableContainer component={Paper}>
+                            <Table className={classes.table} aria-label="customized table">
+                                <TableHead>
+                                    <TableRow>
+                                        <StyledTableCell align="right">ID</StyledTableCell>
+                                        <StyledTableCell align="right">Category</StyledTableCell>
+                                        <StyledTableCell align="right">Type</StyledTableCell>
+                                        <StyledTableCell align="right">Amount</StyledTableCell>
+                                        <StyledTableCell align="right">Concept</StyledTableCell>
+                                        <StyledTableCell align="right">Date</StyledTableCell>
+                                        <StyledTableCell align="right">Delete</StyledTableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {
+                                        getData.map(function (Data) {
+                                            return (
+                                                <StyledTableRow key={Data.id}>
+                                                    <StyledTableCell align="right">{Data.id}</StyledTableCell>
+                                                    <StyledTableCell align="right">{Data.categories.name}</StyledTableCell>
+                                                    <StyledTableCell align="right">{Data.type.name}</StyledTableCell>
+                                                    <StyledTableCell align="right">{Data.amount}</StyledTableCell>
+                                                    <StyledTableCell align="right">{Data.concept}</StyledTableCell>
+                                                    <StyledTableCell align="right">{Data.date}</StyledTableCell>
+                                                    <StyledTableCell align="right"><Button onClick={() => deleteRecord(Data.id)}>delete</Button></StyledTableCell>
+                                                </StyledTableRow>
+                                            )
+                                        })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    )
+                }
             </div>
-</div>
+        </div>
     )
 
 };

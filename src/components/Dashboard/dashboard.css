@@ -4,29 +4,36 @@
 }
 
 .dashboard {
-  width: 20vw;
-  background-color: #74EBD5;
-  background-image: -webkit-linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
-  background-image: -moz-linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
-  background-image: -o-linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
-  background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);  
+  width: 15vw; 
   position: fixed;
   top: 0;
   z-index: 9999;
+  background: #536976;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #292E49, #536976);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #292E49, #536976); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
-.bg-egress {
-  background-color: #FF9A8B;
-  background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
-}
+.btn-egress {
+    background-image: linear-gradient(to right, #1F1C2C 0%, #928DAB  51%, #1F1C2C  100%);
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    display: block;
+  }
+
+  .btn-egress:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
+
 
 ul li {
   margin-top: 4em;
 }
 
-li:hover {
-  color: hotpink;
-}
 
 @media screen and (min-width: 359px) and (max-width:700px) {
   .dashboard {

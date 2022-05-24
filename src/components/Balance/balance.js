@@ -9,7 +9,7 @@ export default function Balance() {
   const [getEntry, setEntry] = useState(0);
   const [getEgress, setEgress] = useState(0);
   const [balance, setBalance] = useState(0);
-  const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(false);
 
   const getBalance = async () => {
    setLoader(true);
@@ -22,7 +22,7 @@ export default function Balance() {
       setEgress(dataServe.balance.egress);
       setEntry(dataServe.balance.entry);
       setBalance(dataServe.balance.balance);
-     setLoader(true);
+     setLoader(false);
     } catch (err) {
       console.log(err);
     }
@@ -39,7 +39,6 @@ export default function Balance() {
           <Loader />
         ) : ( 
     <div className="center-card balance ">
-    
           <div>
           <div className="card text-white bg-balance mb-3 ">
           <div className="card-header">Balance</div>

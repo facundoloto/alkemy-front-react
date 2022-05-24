@@ -1,20 +1,21 @@
 import React from "react";
 import { useState } from "react";
-import { Button, Form, Spinner } from "react-bootstrap";
+import { Button, Form} from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { Oval } from "react-loader-spinner";
+import { useNavigate, Link } from "react-router-dom";
+import Loader from "../Loader/Loader";
 import Swal from "sweetalert2";
 import img from "./../../img/icon_login.png";
 import "bootstrap/dist/css/bootstrap.css";
+import "../Loader/loader.css";
 import "./form.css";
 
+
 export default function Login() {
-  const [getDisplay, setDisplay] = useState(true);
   const [changeType, setChangeType] = useState("password"); //this function like value when it will do click in show password
   const [change, setChange] = useState(true); //it's to evalue when touch show password
   const { register, handleSubmit } = useForm();
+  const [loader, setLoader] = useState("none");
   const navigate = useNavigate();
 
   const changeInput = () => {
@@ -31,8 +32,7 @@ export default function Login() {
   //it's a state to save the data of form in a json for send to apirest
 
   const onSubmit = async function GetFecth(data) {
-    console.log(data);
-    setDisplay(false);
+    setLoader("block");
     //config of requestOptions to fetch
     const requestOptions = {
       method: "POST",
@@ -43,12 +43,10 @@ export default function Login() {
     };
     //fecth
     try {
-      console.log("hola");
       const response = await fetch(
         `https://backend-kr53.onrender.com/auth/login/`,
         requestOptions
       );
-      console.log(response.status);
       //if the password and email is the same,data.lenth not is null
       if (response.status === 200) {
         const getResponse = await response.json();
@@ -56,8 +54,7 @@ export default function Login() {
         localStorage.setItem("userID", getResponse[0].id);
         localStorage.setItem("name", getResponse[0].name);
         localStorage.setItem("login", true);
-        setDisplay(true);
-
+        setLoader("none");
         Swal.fire({
           icon: "success",
           title: "success",
@@ -82,40 +79,43 @@ export default function Login() {
   return (
     <div className="div-first">
       <div className="center-form">
+        <div className={loader}>
+        <Loader />
+        </div>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <img src={img} />{" "}
+          <img src={img} />
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label> Email address </Form.Label>{" "}
+            <Form.Label> Email address </Form.Label>
             <Form.Control
               type="email"
               placeholder="Enter email"
               {...register("email")}
-            />{" "}
+            />
             <Form.Text className="text-muted">
-              We 'll never share your email with anyone else.{" "}
-            </Form.Text>{" "}
-          </Form.Group>{" "}
+              We 'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label> Password </Form.Label>{" "}
+            <Form.Label> Password </Form.Label>
             <Form.Control
               type={changeType}
               placeholder="Password"
               {...register("password")}
-            />{" "}
-          </Form.Group>{" "}
+            />
+          </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check
               type="checkbox"
               onClick={changeInput}
               label="Check me out"
             />
-          </Form.Group>{" "}
+          </Form.Group>
           <Button variant="primary" type="submit">
-            Submit{" "}
-          </Button>{" "}
-          <Link to={"/signup/"}>Register new user </Link>{" "}
-        </Form>{" "}
-      </div>{" "}
+            Submit
+          </Button>
+          <Link to={"/signup/"} color="text-dark">Register new user </Link>
+        </Form>
+      </div>
     </div>
   );
 }

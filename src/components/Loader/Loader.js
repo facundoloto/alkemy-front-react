@@ -1,18 +1,13 @@
 import React from "react";
+import { TailSpin } from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import { Oval } from "react-loader-spinner";
 import "./loader.css";
 
-export default function Loader(){
+export default function Loader(display){
   return(
    <div>
-    <div className=" center-loader ">
-       <Oval
-          height="100" 
-          width="100" 
-          color="#DB5752" 
-          ariaLabel="loading"
-       />
+    <div className="loader">
+    <TailSpin ariaLabel="loading-indicator" color="black" />
     </div>
    </div>
   );
