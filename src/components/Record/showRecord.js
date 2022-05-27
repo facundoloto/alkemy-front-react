@@ -58,7 +58,6 @@ export default function Show() {
     const [loader, setLoader] = useState(true);
 
     let userID = localStorage.getItem("userID");
-    console.log(userID);
     const classes = useStyles();
 
 
@@ -67,11 +66,10 @@ export default function Show() {
         try {
             const response = await fetch(`https://backend-kr53.onrender.com/record/${userID}/`)
             const data = await response.json();
-
             setData(data.result);
-            console.log(getData);
             setLoader(false);
         } catch (err) { console.log(err) }
+
     }
 
     const deleteRecord = async function (id) {
@@ -127,6 +125,7 @@ export default function Show() {
                                 <TableBody>
                                     {
                                         getData.map(function (Data) {
+                                            console.log(Data.date);
                                             return (
                                                 <StyledTableRow key={Data.id}>
                                                     <StyledTableCell align="right">{Data.id}</StyledTableCell>

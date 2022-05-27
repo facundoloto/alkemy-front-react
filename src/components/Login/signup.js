@@ -61,6 +61,7 @@ export default function Signup() {
           <Form.Control
             type="text"
             placeholder="Enter name"
+            required
             {...register("name")}
           />
         </Form.Group>
@@ -69,6 +70,7 @@ export default function Signup() {
           <Form.Control
             type="email"
             placeholder="Enter email"
+            required
             {...register("email")}
           />
         </Form.Group>
@@ -76,6 +78,7 @@ export default function Signup() {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type={changeType}
+            required
             placeholder="Password"
             {...register("password")}
           />

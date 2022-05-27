@@ -39,6 +39,7 @@ export default function Balance() {
           <Loader />
         ) : ( 
     <div className="center-card balance ">
+
           <div>
           <div className="card text-white bg-balance mb-3 ">
           <div className="card-header">Balance</div>
