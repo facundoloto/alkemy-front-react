@@ -50,7 +50,6 @@ export default function Login() {
       //if the password and email is the same,data.lenth not is null
       if (response.status === 200) {
         const getResponse = await response.json();
-        console.log(getResponse);
         localStorage.setItem("userID", getResponse[0].id);
         localStorage.setItem("name", getResponse[0].name);
         localStorage.setItem("login", true);
@@ -77,10 +76,10 @@ export default function Login() {
   };
 
   return (
-    <div className="div-first">
+    <div className="div-first text-light">
       <div className="center-form">
         <div className={loader}>
-        <Loader />
+        <Loader  />
         </div>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <img src={img} />

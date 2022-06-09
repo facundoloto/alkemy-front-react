@@ -3,8 +3,11 @@
 margin-top:2em;
 }
 .center-card .card{
+  width:25vw;
 margin-left:2em;
-
+-webkit-box-shadow: 7px 3px 5px 0px rgba(240,240,240,0.23);
+-moz-box-shadow: 7px 3px 5px 0px rgba(240,240,240,0.23);
+box-shadow: 7px 3px 5px 0px rgba(240,240,240,0.23);
 }
 .bg-balance{
   background-color: #0093E9;
@@ -19,10 +22,19 @@ margin-left:2em;
   background-color: #FF9A8B;
   background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
 }
+
+
+
 @media screen and (min-width: 374px) and (max-width:700px) {
   .center-card .card{
     max-width:15rem !important;
     margin-left:1em;
+  }
+
+  .date{
+    width:80vw !important;
+    height: 50%!important;
+    margin-left:-30%;
   }
     
   }

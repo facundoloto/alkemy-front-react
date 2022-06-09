@@ -155,6 +155,7 @@ export default function Record() {
               defaultValue={null}
               render={({ field }) => (
                 <DatePicker
+                  id="date"
                   onChange={(e) => field.onChange(e)}
                   selected={field.value}
                   dateFormat="yyyy/MM/dd"

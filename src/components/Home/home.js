@@ -1,10 +1,8 @@
 import React from 'react';
 import Dashboard from "../Dashboard/dashboard";
 import Balance from "../Balance/balance";
-import DateChart from "../LineChart/DateChart";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./home.css"
-
 export default function Home() {
     return (
         <div className='center-div'>
@@ -15,7 +13,6 @@ export default function Home() {
                 </svg>Dashboard</h1>
                 <Balance />
             </div>
-   <DateChart />
         </div>
     )
 };

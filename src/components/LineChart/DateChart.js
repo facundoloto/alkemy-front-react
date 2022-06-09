@@ -2,76 +2,70 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Loader from "../Loader/Loader";
 import LineChart from "./LineChart";
+import BarChart from "./BarChart";
+import "./DateChart.css"
 import "bootstrap/dist/css/bootstrap.css";
+import "animate.css";
 
-function DateChart() {
+export default function DateChart() {
 
-  const [date, setDate] = useState([]);
-  const [gain, setGain] = useState([]);
   const [loader, setLoader] = useState(false);
+  const [date, setDate] = useState([]);
 
-    const UserData = async () => {
+  const getDate = async () => {
+    try {
       setLoader(true);
-        try {
+      let userId = localStorage.getItem("userID");
+      const responseDate = await fetch(
+        `https://backend-kr53.onrender.com/balance/date/${userId}`
+      );
+      const data = await responseDate.json();
+      setDate(data.balanceDate)
+      setLoader(false);
 
-            let dateArray=[];
-            let userID = localStorage.getItem("userID");
-            const response = await fetch(`https://backend-kr53.onrender.com/balance/date/${userID}`)
-            const data = await response.json();
-            
-            setDate(data.results);
-            date.map(async (item)=>{
-             // dateArray.push(item.date.slice(0, -14));
-              const requestOptions = {
-                method: `POST`,
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({"id":`${userID}`,"date":`${item.date}`})
-              };
-              const response = await fetch(`https://backend-kr53.onrender.com/balance/date`,requestOptions);
-              const balanceDate = await response.json();
-              console.log(balanceDate.balanceDate.entry);
-              dateArray.push({"date":item.date.slice(0, -14),"balance":balanceDate.balanceDate.entry});
-            });
-
-            setDate(dateArray);
-          
-           setGain({
-              labels: date.map((item)=>{return item.date}),
-              datasets: [
-                {
-                  label: "Users Gained",
-                  data:date.map((item)=>{return item.balance}),
-                  backgroundColor: [
-                    "rgba(75,192,192,1)",
-                    "#ecf0f1",
-                    "#50AF95",
-                    "#f3ba2f",
-                    "#2a71d0",
-                  ],
-                  borderColor: "black",
-                  borderWidth: 2,
-                },
-              ],
-            });
-            setLoader(false);
-        } catch (err) { console.log(err) }
+    } catch (err) {
+      console.log(err);
     }
-        useEffect(async () => {
-            await UserData();
-        }, []);
-  return (
-    <div className="Chart">
-           {
-        loader==true ? (
-          <Loader />
-        ) : ( 
-          <div className="bg-light">
-      
-      </div>
-        )
+  };
+
+  useEffect(async () => {
+    getDate();
+  }, []);
+
+  let gain = {
+    labels: date.map((item) => item.date.slice(0,-14)),
+    datasets: [
+      {
+        label: "Users Gained",
+        data: date.map((item) => item.balance ),
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0",
+        ],
+        borderColor: "white",
+        borderWidth: 2,
+      },
+    ],
+  };
+
+    return (
+      <div>
+        {
+          loader == true ? (
+           
+            <Loader  />
+          
+          ) : (
+            <div className="bg-chart text-light animate__animated animate__fadeInUp">
+             <BarChart chartData={gain} />
+             </div>
+          )
         }
-    </div>
-  );
+      </div>
+    );
 
 };
-export default DateChart;
+

@@ -8,10 +8,10 @@
   position: fixed;
   top: 0;
   z-index: 9999;
-  background: #536976;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #292E49, #536976);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #292E49, #536976); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+ background-color: #371B58;
+ -webkit-box-shadow: 7px 3px 5px 0px rgba(240,240,240,0.09);
+ -moz-box-shadow: 7px 3px 5px 0px rgba(240,240,240,0.09);
+ box-shadow: 7px 3px 5px 0px rgba(240,240,240,0.09);
 }
 
 .btn-egress {
@@ -34,6 +34,9 @@ ul li {
   margin-top: 4em;
 }
 
+nav:hover a {
+opacity:.9;
+}
 
 @media screen and (min-width: 359px) and (max-width:700px) {
   .dashboard {
