@@ -3,12 +3,11 @@ import { useState, useEffect } from "react";
 import Loader from "../Loader/Loader";
 import LineChart from "./LineChart";
 import BarChart from "./BarChart";
-import "./DateChart.css"
+import "./DateChart.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "animate.css";
 
 export default function DateChart() {
-
   const [loader, setLoader] = useState(false);
   const [date, setDate] = useState([]);
 
@@ -20,9 +19,8 @@ export default function DateChart() {
         `https://backend-kr53.onrender.com/balance/date/${userId}`
       );
       const data = await responseDate.json();
-      setDate(data.balanceDate)
+      setDate(data.balanceDate);
       setLoader(false);
-
     } catch (err) {
       console.log(err);
     }
@@ -33,11 +31,11 @@ export default function DateChart() {
   }, []);
 
   let gain = {
-    labels: date.map((item) => item.date.slice(0,-14)),
+    labels: date.map((item) => item.date.slice(0, -14)),
     datasets: [
       {
         label: "Gain per Date",
-        data: date.map((item) => item.balance ),
+        data: date.map((item) => item.balance),
         backgroundColor: [
           "rgba(75,192,192,1)",
           "#ecf0f1",
@@ -51,21 +49,15 @@ export default function DateChart() {
     ],
   };
 
-    return (
-      <div>
-        {
-          loader == true ? (
-           
-            <Loader  />
-          
-          ) : (
-            <div className="bg-chart text-light animate__animated animate__fadeInUp">
-             <BarChart chartData={gain} />
-             </div>
-          )
-        }
-      </div>
-    );
-
-};
-
+  return (
+    <div>
+      {loader == true ? (
+        <Loader />
+      ) : (
+        <div className="bg-chart text-light animate__animated animate__fadeInUp">
+          <BarChart chartData={gain} />
+        </div>
+      )}
+    </div>
+  );
+}

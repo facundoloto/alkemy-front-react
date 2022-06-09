@@ -1,20 +1,19 @@
-.div-center-table{
-margin-top:10em;
+.div-center-table {
+  margin-top: 10em;
 }
 
 .center-div {
-    min-width: 100vw;
-    min-height: 100vh;
- }
+  min-width: 100vw;
+  min-height: 100vh;
+}
 
- .center-loader{
-    position: absolute;
-    top:25vh; 
-    left:35vw;
-    transform: translate(-50%, -50%);
+.center-loader {
+  position: absolute;
+  top: 25vh;
+  left: 35vw;
+  transform: translate(-50%, -50%);
 }
 
 .bg-table {
-background-color: #E2474B I !important;
+  background-color: #e2474b I !important;
 }
-

@@ -11,7 +11,6 @@ import "../Loader/loader.css";
 import "./form.css";
 
 export default function Signup() {
-
   const [changeType, setChangeType] = useState("password"); //this function like value when it will do click in show password
   const [change, setChange] = useState(true); //it's to evalue when touch show password
   const { register, handleSubmit } = useForm();
@@ -28,7 +27,6 @@ export default function Signup() {
       setChange(true);
     }
   };
- 
 
   const onSubmit = async function GetFecth(data) {
     try {
@@ -40,7 +38,7 @@ export default function Signup() {
       };
       //fecth
       const response = await fetch(
-       `https://backend-kr53.onrender.com/auth/register/`,
+        `https://backend-kr53.onrender.com/auth/register/`,
         requestOptions
       );
       console.log(response);
@@ -54,8 +52,7 @@ export default function Signup() {
           timer: 1500,
         });
         navigate("/");
-      }
-      else {
+      } else {
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -71,52 +68,52 @@ export default function Signup() {
 
   return (
     <div className="div-first text-secondary animate__animated animate__fadeInUp">
-    <div className="center-form">
-    <div className={loader}>
-        <Loader  />
+      <div className="center-form">
+        <div className={loader}>
+          <Loader />
         </div>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <img src={img} />
-        <Form.Text>Register new user!</Form.Text>
-        <Form.Group className="mb-3" controlId="formBasicText">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter name"
-            required
-            {...register("name")}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            required
-            {...register("email")}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type={changeType}
-            required
-            placeholder="Password"
-            {...register("password")}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check
-            type="checkbox"
-            label="Check me out"
-            onClick={changeInput}
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Save
-        </Button>
-      </Form>
-    </div>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <img src={img} />
+          <Form.Text>Register new user!</Form.Text>
+          <Form.Group className="mb-3" controlId="formBasicText">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter name"
+              required
+              {...register("name")}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              required
+              {...register("email")}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type={changeType}
+              required
+              placeholder="Password"
+              {...register("password")}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check
+              type="checkbox"
+              label="Check me out"
+              onClick={changeInput}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Save
+          </Button>
+        </Form>
+      </div>
     </div>
   );
 }

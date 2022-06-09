@@ -1,41 +1,42 @@
-
-.center-card{
-margin-top:2em;
-}
-.center-card .card{
-  width:25vw;
-margin-left:2em;
--webkit-box-shadow: 7px 3px 5px 0px rgba(240,240,240,0.23);
--moz-box-shadow: 7px 3px 5px 0px rgba(240,240,240,0.23);
-box-shadow: 7px 3px 5px 0px rgba(240,240,240,0.23);
-}
-.bg-balance{
-  background-color: #0093E9;
-  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-
-}
-.bg-entry{
-  background-color: #08AEEA;
-  background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);  
-}
-.bg-egress{
-  background-color: #FF9A8B;
-  background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+.center-card {
+  margin-top: 2em;
 }
 
+.center-card .card {
+  width: 25vw;
+  margin-left: 2em;
+  -webkit-box-shadow: 7px 3px 5px 0px rgba(240, 240, 240, 0.23);
+  -moz-box-shadow: 7px 3px 5px 0px rgba(240, 240, 240, 0.23);
+  box-shadow: 7px 3px 5px 0px rgba(240, 240, 240, 0.23);
+}
 
+.bg-balance {
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}
+.bg-entry {
+  background-color: #08aeea;
+  background-image: linear-gradient(0deg, #08aeea 0%, #2af598 100%);
+}
+.bg-egress {
+  background-color: #ff9a8b;
+  background-image: linear-gradient(
+    90deg,
+    #ff9a8b 0%,
+    #ff6a88 55%,
+    #ff99ac 100%
+  );
+}
 
-@media screen and (min-width: 374px) and (max-width:700px) {
+@media screen and (min-width: 374px) and (max-width: 700px) {
   .center-card .card {
-  width:50vw;
-    margin-left:1em;
+    width: 50vw;
+    margin-left: 1em;
   }
 
- 
-  .date{
-    width:80vw;
-    margin-left:-30%;
-    margin-bottom:10%;
+  .date {
+    width: 80vw;
+    margin-left: -30%;
+    margin-bottom: 10%;
   }
-    
-  }
+}

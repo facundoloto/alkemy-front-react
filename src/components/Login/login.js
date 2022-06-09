@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Button, Form} from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import Loader from "../Loader/Loader";
@@ -9,7 +9,6 @@ import img from "./../../img/icon_login.png";
 import "bootstrap/dist/css/bootstrap.css";
 import "../Loader/loader.css";
 import "./form.css";
-
 
 export default function Login() {
   const [changeType, setChangeType] = useState("password"); //this function like value when it will do click in show password
@@ -79,7 +78,7 @@ export default function Login() {
     <div className="div-first text-secondary animate__animated animate__fadeInUp">
       <div className="center-form">
         <div className={loader}>
-        <Loader  />
+          <Loader />
         </div>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <img src={img} />
@@ -112,7 +111,9 @@ export default function Login() {
           <Button variant="primary" type="submit">
             Submit
           </Button>
-          <Link to={"/signup/"} color="text-dark">Register new user </Link>
+          <Link to={"/signup/"} color="text-dark">
+            Register new user{" "}
+          </Link>
         </Form>
       </div>
     </div>
