@@ -97,7 +97,7 @@ export default function Record() {
   return (
     <div>
       <Dashboard />
-      <div className="div-first text-light">
+      <div className="div-first text-secondary animate__animated animate__fadeInUp">
       <div className="center-form">
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className="mb-3" controlId="formBasicEmail">

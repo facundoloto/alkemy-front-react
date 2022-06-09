@@ -47,13 +47,13 @@ export default function Balance() {
               </div>
             </div>
             <div className="card text-white bg-entry mb-3">
-              <div className="card-header">ingresos total</div>
+              <div className="card-header">entry</div>
               <div className="card-body">
                 <h5 className="card-title">${getEntry}</h5>
               </div>
             </div>
             <div className="card text-white bg-egress mb-3">
-              <div className="card-header">egresos total</div>
+              <div className="card-header">egress</div>
               <div className="card-body">
                 <h5 className="card-title">${"-" + getEgress}</h5>
               </div>

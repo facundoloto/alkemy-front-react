@@ -36,7 +36,7 @@ export default function DateChart() {
     labels: date.map((item) => item.date.slice(0,-14)),
     datasets: [
       {
-        label: "Users Gained",
+        label: "Gain per Date",
         data: date.map((item) => item.balance ),
         backgroundColor: [
           "rgba(75,192,192,1)",

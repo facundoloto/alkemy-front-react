@@ -3,8 +3,11 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import Loader from "../Loader/Loader";
 import img from "./../../img/icon_login.png";
 import "bootstrap/dist/css/bootstrap.css";
+import "../Loader/loader.css";
 import "./form.css";
 
 export default function Signup() {
@@ -12,6 +15,7 @@ export default function Signup() {
   const [changeType, setChangeType] = useState("password"); //this function like value when it will do click in show password
   const [change, setChange] = useState(true); //it's to evalue when touch show password
   const { register, handleSubmit } = useForm();
+  const [loader, setLoader] = useState("none");
   const navigate = useNavigate();
 
   const changeInput = () => {
@@ -28,7 +32,7 @@ export default function Signup() {
 
   const onSubmit = async function GetFecth(data) {
     try {
-      console.log(data);
+      setLoader("block");
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -42,8 +46,23 @@ export default function Signup() {
       console.log(response);
       //if the password and email is the same,data.lenth not is null
       if (response.status === 200) {
-        alert("user create");
+        setLoader("none");
+        Swal.fire({
+          icon: "success",
+          title: "User create",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate("/");
+      }
+      else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Try again!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     } catch (err) {
       console.log(err);
@@ -51,8 +70,11 @@ export default function Signup() {
   };
 
   return (
-    <div className="div-first">
+    <div className="div-first text-secondary animate__animated animate__fadeInUp">
     <div className="center-form">
+    <div className={loader}>
+        <Loader  />
+        </div>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <img src={img} />
         <Form.Text>Register new user!</Form.Text>

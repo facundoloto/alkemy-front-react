@@ -63,7 +63,7 @@ export default function Login() {
         //rederirection to home if user is loggein
         navigate("/home/");
       } else {
-        console.log(response);
+        setLoader("none");
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -76,7 +76,7 @@ export default function Login() {
   };
 
   return (
-    <div className="div-first text-light">
+    <div className="div-first text-secondary animate__animated animate__fadeInUp">
       <div className="center-form">
         <div className={loader}>
         <Loader  />

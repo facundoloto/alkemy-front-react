@@ -26,15 +26,16 @@ box-shadow: 7px 3px 5px 0px rgba(240,240,240,0.23);
 
 
 @media screen and (min-width: 374px) and (max-width:700px) {
-  .center-card .card{
-    max-width:15rem !important;
+  .center-card .card {
+  width:50vw;
     margin-left:1em;
   }
 
+ 
   .date{
-    width:80vw !important;
-    height: 50%!important;
+    width:80vw;
     margin-left:-30%;
+    margin-bottom:10%;
   }
     
   }

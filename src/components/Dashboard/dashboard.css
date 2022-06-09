@@ -8,14 +8,14 @@
   position: fixed;
   top: 0;
   z-index: 9999;
- background-color: #371B58;
+ background-color: #406D96;
  -webkit-box-shadow: 7px 3px 5px 0px rgba(240,240,240,0.09);
  -moz-box-shadow: 7px 3px 5px 0px rgba(240,240,240,0.09);
  box-shadow: 7px 3px 5px 0px rgba(240,240,240,0.09);
 }
 
 .btn-egress {
-    background-image: linear-gradient(to right, #1F1C2C 0%, #928DAB  51%, #1F1C2C  100%);
+  background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
     transition: 0.5s;
     background-size: 200% auto;
     color: white;            
