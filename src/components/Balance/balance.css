@@ -28,7 +28,7 @@
   );
 }
 
-@media screen and (min-width: 374px) and (max-width: 700px) {
+@media screen and (min-width: 359px) and (max-width: 700px) {
   .center-card .card {
     width: 50vw;
     margin-left: 1em;
